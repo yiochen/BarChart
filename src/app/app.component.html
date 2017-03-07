@@ -1,3 +1,10 @@
 <div>
-  <app-d3-bar-chart [data]="data"></app-d3-bar-chart>
+  <input [(ngModel)]="data[0].value">
+  <app-d3-bar-chart 
+    [data]="data"
+    appAutoResize
+    #resizer="autoResize"
+    [height]="resizer.height"
+    [width]="resizer.width"
+    ></app-d3-bar-chart>
 </div>

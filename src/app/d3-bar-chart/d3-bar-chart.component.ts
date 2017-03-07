@@ -32,9 +32,23 @@ export class D3BarChartComponent implements OnChanges {
     this.yScale = D3.scaleLinear()
       .domain([0, this.range])
       .range([this.chartHeight, 0]);
-    this.transform = `scale(1, -1) translate(${this.paddingLeft}, -${this.chartHeight})`;
+    this.transform = `scale(1, -1) translate(${this.paddingLeft}, ${- this.chartHeight})`;
     this.axisBottomTransform = `translate(${this.paddingLeft}, ${this.chartHeight})`;
     this.axisLeftTransform = `translate(${this.paddingLeft}, 0)`;
+  }
+
+  clampHeight(value: number) {
+    if (value < 0) {
+      return 0;
+    }
+    if (value > this.chartHeight) {
+      return this.chartHeight;
+    }
+    return value;
+  }
+
+  barHeight(value) {
+    return this.clampHeight(this.chartHeight - this.yScale(value));
   }
 
 }
