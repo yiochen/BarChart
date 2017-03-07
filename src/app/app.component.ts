@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  data = [{
+    name: 'Jan',
+    value: 12,
+  }, {
+    name: 'Feb',
+    value: 50,
+  }, {
+    name: 'Mar',
+    value: 90
+  }];
 }
