@@ -8,14 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  data = [{
-    name: 'Jan',
-    value: 12,
-  }, {
-    name: 'Feb',
-    value: 50,
-  }, {
-    name: 'Mar',
-    value: 90
-  }];
+  data = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    .map((month: string) => ({
+      name: month,
+      value: Math.random() * 100
+    }));
+  push() {
+    this.data.push({name: ''+Math.random(), value: Math.random() * 100});
+    this.data = this.data.slice();
+  }
 }

@@ -1,6 +1,13 @@
-<svg [attr.height]="height" [attr.width]="width">
+<svg [height]="height" [attr.width]="width">
   <g [attr.transform]="transform">
-      <rect *ngFor="let item of data" [attr.height]="barHeight(item.value)" [attr.width]="xScale.bandwidth()" [attr.x]="xScale(item.name)" [attr.y]="0" fill="skyblue"></rect>
+      <rect 
+        *ngFor="let item of data" 
+        [attr.height]="barHeight(item.value)" 
+        [attr.width]="xScale.bandwidth()" 
+        [attr.x]="xScale(item.name)" 
+        [attr.y]="0" 
+        fill="skyblue">
+      </rect>
   </g>
   <g class="axis"
     [attr.transform]="axisBottomTransform" 
