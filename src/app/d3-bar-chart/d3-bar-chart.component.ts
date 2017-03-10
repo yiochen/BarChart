@@ -22,7 +22,13 @@ export class D3BarChartComponent implements OnChanges {
   chartHeight = this.height - this.paddingBottom;
   axisBottomTransform = '';
   axisLeftTransform = '';
+  barHeights: number[] = [];
+  barWidth = 0;
+  xCoordinates: number[] = [];
 
+  // ngDoCheck() {
+  //   this.barHeights = this.data.map((item: Datum) =>this.barHeight(item.value));
+  // }
   ngOnChanges() {
     this.chartWidth = this.width - this.paddingLeft;
     this.chartHeight = this.height - this.paddingBottom; 
@@ -32,18 +38,30 @@ export class D3BarChartComponent implements OnChanges {
     this.yScale = D3.scaleLinear()
       .domain([0, this.range])
       .range([this.chartHeight, 0]);
+
+    this.barWidth = this.xScale.bandwidth();
+    this.barHeights = this.data.map((item: Datum) =>this.barHeight(item.value));
+    this.xCoordinates = this.data.map((item: Datum) => this.xScale(item.name));
+  
     this.transform = `scale(1, -1) translate(${this.paddingLeft}, ${- this.chartHeight})`;
     this.axisBottomTransform = `translate(${this.paddingLeft}, ${this.chartHeight})`;
     this.axisLeftTransform = `translate(${this.paddingLeft}, 0)`;
+    // this.range ++;
   }
 
   clampHeight(value: number) {
     if (value < 0) {
       return 0;
     }
+
+    if (this.chartHeight <= 0) {
+      return 0
+    }
+
     if (value > this.chartHeight) {
       return this.chartHeight;
     }
+
     return value;
   }
 

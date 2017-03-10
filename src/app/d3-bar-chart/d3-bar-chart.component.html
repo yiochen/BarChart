@@ -1,10 +1,10 @@
-<svg [height]="height" [attr.width]="width">
+<svg [attr.height]="height" [attr.width]="width">
   <g [attr.transform]="transform">
       <rect 
-        *ngFor="let item of data" 
-        [attr.height]="barHeight(item.value)" 
-        [attr.width]="xScale.bandwidth()" 
-        [attr.x]="xScale(item.name)" 
+        *ngFor="let item of data; let i=index" 
+        [attr.height]="barHeights[i]" 
+        [attr.width]="barWidth" 
+        [attr.x]="xCoordinates[i]" 
         [attr.y]="0" 
         fill="skyblue">
       </rect>

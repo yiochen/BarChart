@@ -9,12 +9,20 @@ export class AppComponent {
   title = 'app works!';
 
   data = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    .map((month: string) => ({
+    .map((month: string, i: number) => ({
       name: month,
-      value: Math.random() * 100
+      value: i * 5
     }));
   push() {
-    this.data.push({name: ''+Math.random(), value: Math.random() * 100});
+    this.data.push({ name: '' + Math.random(), value: Math.random() * 100 });
+    this.data = this.data.slice();
+  }
+
+  changeValues() {
+    this.data.map((item: any) => {
+      item.value = Math.random() * 100;
+      return item
+    });
     this.data = this.data.slice();
   }
 }

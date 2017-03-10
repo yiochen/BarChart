@@ -17,7 +17,7 @@ export class AutoResizeDirective implements AfterViewInit, OnDestroy {
       this.requestId = window.requestAnimationFrame(checkDimension);
     }
     // If call the following line here, error will be thrown in debug mode
-    // Expression has changed after it was checked.
+    // "Expression has changed after it was checked."
     // checkDimension();
 
     this.requestId = window.requestAnimationFrame(checkDimension);
