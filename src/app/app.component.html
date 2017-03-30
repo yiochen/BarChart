@@ -1,6 +1,8 @@
 <div>
   <p>Hello</p>
   <button (click)="changeValues()">Change values</button>
+  <button (click)="unshift()">Add to front</button>
+  <button (click)="push()">Add to back</button>
   <app-d3-bar-chart 
     [data]="data"
     appAutoResize
@@ -8,4 +10,5 @@
     [height]="resizer.height"
     [width]="resizer.width"
     ></app-d3-bar-chart>
+    {{num | tween:2000}}
 </div>

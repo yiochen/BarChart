@@ -1,10 +1,10 @@
 <svg [attr.height]="height" [attr.width]="width">
   <g [attr.transform]="transform">
       <rect 
-        *ngFor="let item of data; let i=index" 
-        [attr.height]="barHeights[i]" 
+        *ngFor="let item of data; let i=index; trackBy: trackByFunc" 
+        [attr.height]="barHeight(item.value) | tween" 
         [attr.width]="barWidth" 
-        [attr.x]="xCoordinates[i]" 
+        [attr.x]="barX(item.name)" 
         [attr.y]="0" 
         fill="skyblue">
       </rect>

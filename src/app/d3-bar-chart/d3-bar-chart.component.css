@@ -9,6 +9,4 @@ svg {
     width: 100%;
 }
 
-rect {
-    transition: height 1s ease, width 1s ease;
-}
+

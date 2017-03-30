@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { D3BarChartComponent } from './d3-bar-chart/d3-bar-chart.component';
 import { D3AxisDirective } from './d3-axis.directive';
 import { AutoResizeDirective } from './auto-resize.directive';
+import { TweenPipe } from './tween.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     D3BarChartComponent,
     D3AxisDirective,
-    AutoResizeDirective
+    AutoResizeDirective,
+    TweenPipe
   ],
   imports: [
     BrowserModule,
